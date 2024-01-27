@@ -27,3 +27,65 @@ Comment: well it could be used for this as well
 Submission Title: Personalized Memory Storage 
 Comment: explain what a personalized memory store is
 ===
+Personalized Memory Storage |hey
+===
+Reply to 9|Personalized Memory Storage |hi
+===
+Personalized Memory Storage |what up
+===
+Reply to 11|Personalized Memory Storage |not much 
+===
+|Personalized Memory Storage |test
+===
+|Personalized Memory Storage |testok
+===
+hgekllo |Interesting paper! 
+===
+Reply to 15|hgekllo |it is indeed. Good for CV use cases 
+===
+hgekllo |great idea!
+===
+hgekllo |what is? 
+===
+hgekllo |cv
+===
+Response to Personalized Memory Storage |cool
+===
+Personalized Memory Storage |cool
+===
+Response to Personalized Memory Storage |wyd
+===
+Response to Personalized Memory Storage |wyd
+===
+MuRAG: llama|wow super cool infra. Could this be used for knowledge stores? 
+===
+Reply to 24|MuRAG: llama|possibly, what were you thinking? None
+===
+MuRAG: llama|possibly, what were you thinking? 
+===
+Reply to 26|MuRAG: llama|we could add a new text None
+===
+Reply to 9|Personalized Memory Storage |how's it going 
+===
+ 21|Personalized Memory Storage |ikr! 
+===
+Personalized Memory Storage |wdym?
+===
+Personalized Memory Storage |you know
+===
+9|Personalized Memory Storage |lol
+===
+9|Personalized Memory Storage |lol|None
+===
+11|Personalized Memory Storage |people say hey |None
+===
+Personalized Memory Storage |people say hey 
+===
+35|Personalized Memory Storage |HEY!|None
+===
+9|Personalized Memory Storage |bonjour 
+===
+No Title|hello
+===
+38|No Title|hi 
+===

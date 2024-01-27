@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st 
 
 FILENAME = "user_inputs.txt"
 COMMENTS_FILE = "comments.txt"
@@ -9,35 +9,61 @@ def store_inputs(title, url, summary, usecase):
     with open(FILENAME, "a") as file:
         file.write(f"Title: {title}\n")
         file.write(f"URL: {url}\n")
-        file.write("===\n")
         file.write(f"Summary: {summary}\n")
         file.write(f"Use Case: {usecase}\n")
         file.write("===\n")
-
-# Function to store comments
-def store_comment(submission_title, comment):
-    if comment.strip():  # Ensure the comment is not empty
-        with open(COMMENTS_FILE, "a") as file:
-            file.write(f"Submission Title: {submission_title}\n")
-            file.write(f"Comment: {comment}\n")
-            file.write("===\n")
 
 def display_submissions():
     try:
         with open(FILENAME, "r") as file:
             submissions = file.read().split("===\n")
-            for submission in submissions:
+            for index, submission in enumerate(submissions):
                 if submission.strip():
+                    # Split the submission into its individual lines
                     submission_details = submission.strip().split('\n')
-                    if len(submission_details) > 1:  # Check if the title is present
-                        submission_title = submission_details[0].split('Title: ')[1]
-                        st.text_area("", submission.strip(), height=200, key=f'submission_{submission_title}')
-                        if st.button("Add Comment", key=f'btn_{submission_title}'):
-                            st.session_state['comment_submission_title'] = submission_title
-                            st.experimental_rerun()
-                        st.markdown("---")
+
+                    # Initialize variables to store the details
+                    title, url, summary, usecase = "No Title", "No URL", "No Summary", "No Use Case"
+
+                    # Extract each detail
+                    for detail in submission_details:
+                        if detail.startswith("Title: "):
+                            title = detail.split("Title: ")[1]
+                        elif detail.startswith("URL: "):
+                            url = detail.split("URL: ")[1]
+                        elif detail.startswith("Summary: "):
+                            summary = detail.split("Summary: ")[1]
+                        elif detail.startswith("Use Case: "):
+                            usecase = detail.split("Use Case: ")[1]
+
+                    # Display all parts of the submission together
+                    st.write(f"**Title:** {title}")
+                    st.write(f"**URL:** {url}")
+                    st.write(f"**Summary:** {summary}")
+                    st.write(f"**Use Case:** {usecase}")
+
+                    # Button for adding a comment
+                    button_key = f"btn_{index}"
+                    if st.button("Add Comment", key=button_key):
+                        st.session_state['comment_submission_title'] = title
+                        st.experimental_rerun()
+
+                    st.markdown("---")
+
     except FileNotFoundError:
         st.write("No submissions yet.")
+
+
+# Function to store comments
+def store_comment(submission_title, comment, parent_id=None):
+    with open(COMMENTS_FILE, "a") as file:
+        if parent_id:
+            # Store as a reply to an existing comment
+            file.write(f"{parent_id}|{submission_title}|{comment}\n===\n")
+        else:
+            # Store as a new top-level comment
+            file.write(f"{submission_title}|{comment}\n===\n")
+
 
 def display_comments(submission_title):
     try:
@@ -45,21 +71,25 @@ def display_comments(submission_title):
             comments = file.read().split("===\n")
             for index, comment in enumerate(comments):
                 if comment.strip():
-                    comment_details = comment.strip().split('\n')
-                    title_line = next((line for line in comment_details if line.startswith('Submission Title: ')), None)
-                    comment_line = next((line for line in comment_details if line.startswith('Comment: ')), None)
-                    if title_line and comment_line:
-                        title = title_line.split('Submission Title: ')[1]
-                        if title == submission_title:
-                            comment_text = comment_line.split('Comment: ')[1]
-                            st.text(comment_text)
-                            st.markdown("---")
+                    parts = comment.strip().split('|')
+                    if len(parts) == 2 and parts[0] == submission_title:
+                        st.text(parts[1])
+                        if st.button("Reply", key=f'reply_btn_{index}'):
+                            st.session_state['parent_comment_id'] = index
+                            st.session_state['comment_submission_title'] = submission_title
+                            st.experimental_rerun()
+                        st.markdown("---")
+                    elif len(parts) == 3 and parts[1] == submission_title:
+                        st.text(f"Reply to {parts[0]}: {parts[2]}")
+                        st.markdown("---")
     except FileNotFoundError:
         st.write("No comments yet.")
 
 def comment_page():
     st.title("Discussion")
     submission_title = st.session_state.get('comment_submission_title', '')
+    parent_comment_id = st.session_state.get('parent_comment_id', None)
+
     if submission_title:
         st.write(f"Discussion for: {submission_title}")
 
@@ -69,10 +99,11 @@ def comment_page():
             submit_comment = st.form_submit_button("Submit Comment")
 
         if submit_comment and comment.strip():
-            store_comment(submission_title, comment)
+            store_comment(submission_title, comment, parent_id=parent_comment_id)
             st.success("Comment added!")
+            st.session_state['parent_comment_id'] = None  # Reset the parent comment ID after submitting
 
-        # Display all comments (including the newly added one) under the comment form
+        # Display all comments and replies
         display_comments(submission_title)
 
     else:
