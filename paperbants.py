@@ -52,7 +52,7 @@ def display_comments(submission_title):
                         title = title_line.split('Submission Title: ')[1]
                         if title == submission_title:
                             comment_text = comment_line.split('Comment: ')[1]
-                            st.text_area("Comment", comment_text, height=100, disabled=True, key=f'comment_{index}')
+                            st.text(comment_text)
                             st.markdown("---")
     except FileNotFoundError:
         st.write("No comments yet.")

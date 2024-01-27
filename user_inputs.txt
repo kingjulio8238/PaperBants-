@@ -43,3 +43,32 @@ URL: hi
 Summary: de
 Use Case: weedwde
 ===
+Title: Computer vision for cars 
+URL: https://arxiv.org/pdf/2311.09093.pdf
+===
+Summary: Autonomous vehicle refers to a vehicle capable of
+perceiving its surrounding environment and driving with little or
+no human driver input. The perception system is a fundamental
+component which enables the autonomous vehicle to collect data
+and extract relevant information from the environment to drive
+safely. Benefit from the recent advances in computer vision,
+the perception task can be achieved by using sensors, such
+as camera, LiDAR, radar, and ultrasonic sensor. This paper
+reviews publications on computer vision and autonomous driving
+that are published during the last ten years. In particular,
+we first investigate the development of autonomous driving
+systems and summarize these systems that are developed by
+the major automotive manufacturers from different countries.
+Second, we investigate the sensors and benchmark data sets
+that are commonly utilized for autonomous driving. Then, a
+comprehensive overview of computer vision applications for autonomous driving such as depth estimation, object detection, lane
+detection, and traffic sign recognition are discussed. Additionally,
+we review public opinions and concerns on autonomous vehicles.
+Based on the discussion, we analyze the current technological
+challenges that autonomous vehicles meet with. Finally, we
+present our insights and point out some promising directions for
+future research. This paper will help the reader to understand
+autonomous vehicles from the perspectives of academia and
+industry.
+Use Case: Autonomous Vehicles
+===
