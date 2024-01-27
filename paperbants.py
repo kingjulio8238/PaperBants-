@@ -2,6 +2,7 @@ import streamlit as st
 
 FILENAME = "user_inputs.txt"
 COMMENTS_FILE = "comments.txt"
+QUERIES_FILE = "queries.txt"
 
 # Function to store inputs
 def store_inputs(title, url, summary, usecase):
@@ -77,10 +78,25 @@ def comment_page():
     else:
         st.write("No submission selected for commenting.")
 
-def main():
-    page = st.sidebar.selectbox("Choose a page:", ["Submit", "Feed", "Discussion"])
+# Function to store queries
+def store_query(query):
+    with open(QUERIES_FILE, "a") as file:
+        file.write(f"{query}\n===\n")
 
-    if page == "Submit":
+def main():
+    page = st.sidebar.selectbox("Choose a page:", ["Home", "Submit", "Feed", "Discussion"])
+
+    if page == "Home":
+        st.title("Ask a Question")
+        with st.form("query_form"):
+            query = st.text_area("Explore knowledge", height=100)
+            submit_query = st.form_submit_button("Submit Question")
+
+        if submit_query and query.strip():
+            store_query(query)
+            st.success("Question submitted!")
+
+    elif page == "Submit":
         st.title("Submit your thoughts")
         with st.form("submission_form"):
             title = st.text_input("Title")
