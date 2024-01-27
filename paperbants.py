@@ -59,7 +59,7 @@ def store_comment(submission_title, comment, parent_id=None):
     with open(COMMENTS_FILE, "a") as file:
         if parent_id:
             # Store as a reply to an existing comment
-            file.write(f"{parent_id}|{submission_title}|{comment}\n===\n")
+            file.write(f"{submission_title}|{comment}\n===\n")
         else:
             # Store as a new top-level comment
             file.write(f"{submission_title}|{comment}\n===\n")
