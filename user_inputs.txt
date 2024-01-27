@@ -1,0 +1,45 @@
+Title: Personalized Memory Storage 
+URL: https://arxiv.org/pdf/2312.10997.pdf
+Summary: 
+This summary provides an overview of the paper discussing Large Language Models (LLMs) and the challenges they face, such as hallucination, outdated information, and opaque reasoning processes. The paper introduces Retrieval-Augmented Generation (RAG) as a solution, which enhances LLMs by integrating external database knowledge. This approach improves accuracy and credibility, especially in knowledge-intensive tasks, and allows for continual updates and domain-specific information integration. The paper reviews various RAG paradigms, including Naive, Advanced, and Modular RAG, and examines their foundations in retrieval, generation, and augmentation techniques. It explores state-of-the-art technologies in RAG components, providing insights into RAG system advancements. Additionally, the paper presents metrics and benchmarks for RAG model evaluation and suggests future research directions, including addressing challenges, expanding multi-modalities, and developing the RAG infrastructure and ecosystem.
+Use Case: Personal Knowledge Retrieval 
+
+Title: Multimodal CoT 
+URL: https://arxiv.org/pdf/2302.00923.pdf
+Summary: This is a new approach called Multimodal-CoT, which extends the concept of chain-of-thought (CoT) prompting used in large language models (LLMs) to include both language and visual information. Unlike traditional CoT methods that focus solely on language, Multimodal-CoT integrates text and images in a two-stage framework that separates the generation of reasoning rationales and the inference of answers. This approach allows for more effective use of multimodal data in generating rationales, leading to improved answer accuracy. The model implementing Multimodal-CoT, with fewer than 1 billion parameters, notably outperforms the previous state-of-the-art LLM, GPT-3.5, by a significant margin (16 percentage points increase in accuracy) and even exceeds human performance on the ScienceQA benchmark.
+Use Case: Chain of Thought for agents 
+
+Title: Memory visualization
+URL: https://arxiv.org/pdf/2302.00923.pdf
+Summary: 
+This summary discusses a new approach called Multimodal-CoT, which extends the concept of chain-of-thought (CoT) prompting used in large language models (LLMs) to include both language and visual information. Unlike traditional CoT methods that focus solely on language, Multimodal-CoT integrates text and images in a two-stage framework that separates the generation of reasoning rationales and the inference of answers. This approach allows for more effective use of multimodal data in generating rationales, leading to improved answer accuracy. The model implementing Multimodal-CoT, with fewer than 1 billion parameters, notably outperforms the previous state-of-the-art LLM, GPT-3.5, by a significant margin (16 percentage points increase in accuracy) and even exceeds human performance on the ScienceQA benchmark.
+Use Case: Computer Vision for agents 
+===
+Title: MuRAG: llama
+URL: https://arxiv.org/pdf/2210.02928.pdf
+Summary: this is a MuRAG infra 
+Use Case: visual assistance 
+===
+Title: hgekllo 
+URL: https://arxiv.org/pdf/2311.09210.pdf
+Summary: test 
+Use Case: dd
+===
+Title: Personalizing LLMs 
+URL: https://arxiv.org/pdf/2311.09180.pdf
+Summary: This summary discusses "PEARL," a novel retrieval-augmented large language model (LLM) designed to enhance writing assistants by personalizing outputs to match an author's communication style and specialized knowledge. The paper addresses the challenge of personalization in LLMs by introducing a generation-calibrated retriever in PEARL. This retriever is trained to select historical documents authored by the user, which are then used to augment prompts and personalize LLM outputs for specific user requests. The training of the retriever involves two innovative approaches: firstly, a method for selecting training data that identifies user requests benefitting most from personalization and the documents that provide this benefit; secondly, a scale-calibrating KL-divergence objective ensuring the retriever accurately assesses the value of a document for personalized generation. The effectiveness of PEARL is demonstrated in creating personalized social media posts for workplace scenarios and Reddit comments. Additionally, the paper highlights the dual role of the generation-calibrated retriever in PEARL, serving both as a tool for enhancing personalization and as a performance predictor to improve the quality of LLM outputs through chaining.
+Use Case: LLMs for Personal Knowledge 
+===
+Title: de||URL: dcecdc||Summary: ||Use Case: vvrf||===
+Title: hello memory 
+URL: https://arxiv.org/pdf/2311.09180.pdf
+Summary: this is to understand how to control memories
+Use Case: memory control 
+
+===
+Title: hello
+URL: hi 
+===
+Summary: de
+Use Case: weedwde
+===
