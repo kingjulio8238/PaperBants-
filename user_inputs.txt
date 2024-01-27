@@ -101,3 +101,8 @@ URL: hello.url
 Summary: hello summary 
 Use Case: hello tag 
 ===
+Title: Vision Tasks using Florence-2
+URL: https://arxiv.org/pdf/2311.06242.pdf
+Summary: Florence-2, a novel vision foundation model with a unified, prompt-based representation for a variety of computer vision and vision-language tasks.
+Use Case: multimodality 
+===

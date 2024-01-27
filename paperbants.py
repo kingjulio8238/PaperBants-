@@ -115,17 +115,27 @@ def store_query(query):
         file.write(f"{query}\n===\n")
 
 def main():
-    page = st.sidebar.selectbox("Choose a page:", ["Home", "Submit", "Feed", "Discussion"])
+    page = st.sidebar.selectbox("Navigate:", ["Home", "Submit", "Feed", "Discussion"])
 
     if page == "Home":
-        st.title("Ask a Question")
+        st.title("Knowledge Explorer")
         with st.form("query_form"):
-            query = st.text_area("Explore knowledge", height=100)
-            submit_query = st.form_submit_button("Submit Question")
+            query = st.text_area("Explore papers", height=100)
+            submit_query = st.form_submit_button("Search Paper")
 
         if submit_query and query.strip():
             store_query(query)
-            st.success("Question submitted!")
+            st.success("Paper Query submitted!")
+
+        with st.form("query_comments_form"):
+            query_comments = st.text_area("Explore Comments", height=100)
+            submit_comment_query = st.form_submit_button("Search Comments")
+
+        if submit_comment_query and query_comments.strip():
+            store_query(query_comments)
+            st.success("Comment search submitted!")
+
+        
 
     elif page == "Submit":
         st.title("Submit your thoughts")

@@ -6,3 +6,9 @@ Computer vision for cars |what about the robo taxi initiative by Tesla?
 ===
 Computer vision for cars |That's gonna be epic! 
 ===
+Vision Tasks using Florence-2|is this better than GPT-4V?? 
+===
+Vision Tasks using Florence-2|Yes. not better than Llama though
+===
+Vision Tasks using Florence-2|make sure to check out Gemini! 
+===
