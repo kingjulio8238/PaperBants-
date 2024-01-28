@@ -106,3 +106,8 @@ URL: https://arxiv.org/pdf/2311.06242.pdf
 Summary: Florence-2, a novel vision foundation model with a unified, prompt-based representation for a variety of computer vision and vision-language tasks.
 Use Case: multimodality 
 ===
+Title: Neuralink Invasive BCI Implants 
+URL: https://arxiv.org/ftp/arxiv/papers/2205/2205.08540.pdf
+Summary: Neuralink is creating a groundbreaking approach towards implanting an invasive BCI. Their surgical robot understands all the brain networks and can infer the best way to place the chip. The robot can place the chip without any error. Machines to create machines! 
+Use Case: implanting brain devices 
+===

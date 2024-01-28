@@ -2,6 +2,7 @@ from collections import defaultdict
 
 # Path to the comments file
 COMMENTS_FILE = "comments.txt"
+QUERIES_FILE = "queries.txt"
 
 # Function to read comments and organize them by title
 def read_and_organize_comments():
@@ -21,6 +22,18 @@ def read_and_organize_comments():
         print(f"The file {COMMENTS_FILE} does not exist.")
     
     return comments_by_title
+
+def read_query():
+    try:
+        with open(QUERIES_FILE, "r") as file:
+            for line in file:
+                # Return the first non-empty line as the query
+                query = line.strip()
+                if query:
+                    return query
+    except FileNotFoundError:
+        print(f"The file {QUERIES_FILE} does not exist.")
+        return None
 
 comments_by_title = read_and_organize_comments()
 
@@ -46,6 +59,12 @@ def bm25_retrieve_comments(query):
     return top_comments
 
 # Example usage
-query = "What are they commenting about computer vision cars"
-top_comments_for_query = bm25_retrieve_comments(query)
+query = read_query()
+
+# If a query was successfully read, retrieve comments for it
+if query:
+    top_comments_for_query = bm25_retrieve_comments(query)
+    print(f"Top comments for the query '{query}':\n{top_comments_for_query}")
+else:
+    print("No query was read from the file.")
 

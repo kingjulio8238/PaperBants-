@@ -1,4 +1,5 @@
 import streamlit as st 
+import subprocess
 
 FILENAME = "user_inputs.txt"
 COMMENTS_FILE = "comments.txt"
@@ -134,6 +135,15 @@ def main():
         if submit_comment_query and query_comments.strip():
             store_query(query_comments)
             st.success("Comment search submitted!")
+
+            try:
+                result = subprocess.run(['python', 'search_comments.py'], capture_output=True, text=True, check=True)
+                if result.stdout.strip():  # Check if there's any output
+                    st.write(result.stdout[52:])  # Display the script output (comments)
+                else:
+                    st.info("No comments found for the query.")
+            except subprocess.CalledProcessError:
+                st.error("An error occurred while running the search comments script.")
 
         
 
